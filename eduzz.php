@@ -3,7 +3,7 @@
 /*
 Plugin Name: EduzzWordpress Plugin
 Description: EduzzWordpress Plugin
-Version: 1.03
+Version: 1.00
 Author: Oxy Kay
 Author URI: http://www.eduzz.com/ajuda/
 License: GPLv2 or later
@@ -22,7 +22,7 @@ if (!class_exists('eduzz_funnel')) {
 define(EDUZZ_VER, '1.00'); //change manually !!!
 define(EDUZZ_HELP, 'http://www.eduzz.com/ajuda/'); //change manually !!!
 define(EDUZZ_SITE, 'http://www.eduzz.com/'); //change manually !!!
-define(EDUZZ_LOGO, get_option('siteurl') . '/wp-content/plugins/' . plugin_basename(dirname(__FILE__)) . '/images/'); //change manually !!!
+define(EDUZZ_LOGO, 'http://eduzz.com.br/blog/wp-content/uploads/2014/08/logo.png'); //change manually !!!
 
 class eduzz_funnel {
 	
@@ -42,7 +42,7 @@ public function __construct() {
 
 function menu_pages() {
 	
-add_menu_page(__('Eduzz', 'eduzz_textdomain'), __('Eduzz', 'eduzz-plugin'), 'manage_options', 'eduzzplugin', array($this,'eduzz_plugin_page'), EDUZZ_LOGO.'icon.png', 119);	
+add_menu_page(__('Eduzz', 'eduzz_textdomain'), __('Eduzz', 'eduzz-plugin'), 'manage_options', 'eduzzplugin', array($this,'eduzz_plugin_page'), 'http://eduzz.com.br/blog/wp-content/uploads/2014/08/icon.png', 119);	
 	
 }
 
@@ -50,7 +50,7 @@ function eduzz_plugin_page() {
 
 echo '
 <div id="wrap">
-<img src="'.EDUZZ_LOGO.'logo.png" style="float:right; padding-top:2%; padding-right:2%" width="20%" height="20%" />
+<img src="'.EDUZZ_LOGO.'" style="float:right; padding-top:2%; padding-right:2%" width="20%" height="20%" />
 <h2>'.__( 'EduzzWordpress Plugin', 'eduzz_textdomain' ).'</h2>
 <p>'.__( 'Version:', 'eduzz_textdomain' ).' '.EDUZZ_VER.'</p>
 <p>'.__( 'Site:', 'eduzz_textdomain' ).' <br /><a target="_blank" href="'.EDUZZ_SITE.'">'.EDUZZ_SITE.'</a></p>
