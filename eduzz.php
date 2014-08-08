@@ -3,45 +3,37 @@
 /*
 Plugin Name: Eduzz Plugin
 Description: Eduzz Plugin.
-Version: 1.03
-Author: Codepress
-Author URI: http://codepress.nl
+Version: 1.00
+Author: Oxy Kay
+Author URI: 
 License: GPLv2 or later
+Network: true
 */
 
-require_once 'class/github-updater.php'; //adding class
+//require_once 'class/github-updater.php'; //adding class
 
-if ( !class_exists( 'GitHub_Plugin_Updater' ) ) :
+require_once( 'class/BFIGitHubPluginUploader.php' );
 
-/**
- * Register a new GitHub plugin
- *
- * @param array $config
- */
-function ceduzz_github_plugin_updater_register( $config ) {
-	$upd = new GitHub_Plugin_Updater( $config );
-	
-	//var_dump($upd->get_local_version());
+if ( is_admin() ) {
+    new BFIGitHubPluginUpdater( __FILE__, 'epachelle', "wp_eduzz_plugin" );
 }
 
-//ok, now we set, create plugin info
 
-function ceduzz_github_updater() {
+
+//sites menu
+add_action('admin_menu', 'menu_pages');
+
+function menu_pages() {
 	
-if ( !function_exists( 'ceduzz_github_plugin_updater_register' ) )
-return false;
-
-ceduzz_github_plugin_updater_register( array(
-'owner' => 'epachelle',
-'repo' => 'wp/eduzz',
-'slug' => 'wp/eduzz/eduzz.php', // defaults to the repo value ('repo/repo.php')
-) );
+add_menu_page(__('Eduzz', 'eduzz-plugin'), __('Eduzz', 'eduzz-plugin'), 'manage_options', 'eduzzplugin', 'eduzz_plugin_page', '', 119);	
+	
 }
-add_action( 'plugins_loaded', 'ceduzz_github_updater' );
 
+function eduzz_plugin_page() {
 
-
-
-endif;
-
+global $transient;
+var_dump($transient);
+	
+}
+	
 ?>
