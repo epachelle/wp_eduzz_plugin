@@ -3,7 +3,7 @@
 /*
 Plugin Name: Eduzz Plugin
 Description: Eduzz Plugin.
-Version: 1.00
+Version: 1.01
 Author: Oxy Kay
 Author URI: 
 License: GPLv2 or later
